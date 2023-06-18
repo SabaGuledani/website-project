@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/styles.css') }}"/>
+<title>Spooky</title>
+</head>
+
+<body>
+    <div id="title">
+        <nav class="nav-ul">
+            <a class="nav-link" href="{{url_for('home')}}">Home</a>
+            <a class="nav-link" href="">Browse</a>
+            <a class="nav-link" href="{{url_for('login')}}">Log In/Register</a>
+            <a class="nav-link" href="">About</a>
+        </nav>
+    </div>
+    <main>
+        <aside>
+            <ul class="sidebar">
+                <li class="sidebar-li">
+                    <a href="" class="sidebar-li-a">Search</a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="" class="sidebar-li-a">Find</a>
+                </li>
+                <li class="sidebar-li">
+                    <a href="" class="sidebar-li-a">Consume</a>
+                </li>
+            </ul>
+        </aside>
+        <div id="content">
+        {% block content %}{% endblock %}
+        </div>
+       
+    </main>
+</body>
+
+</html>
