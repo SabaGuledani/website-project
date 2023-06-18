@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask_session import Session
 from wtforms import Form, StringField, PasswordField, validators, SubmitField
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -10,6 +11,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 app.static_folder = 'static'
 app.secret_key = "spookyskeletons"
 db.init_app(app)
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 
 class User(db.Model):
@@ -60,7 +63,11 @@ def login():
         elif not check_password_hash(user.password, password):
             flash("Incorrect Password")
         else:
-            flash(f"Logged In!")
+            session["username"] = user.username
+            session["email"] = user.email
+            session["date"] = user.date
+            session["admin"] = user.admin
+            return redirect(url_for("home"))
     return render_template("login.html", form=form)
 
 
@@ -83,6 +90,14 @@ def register():
             flash(f"Registered!")
             return redirect(url_for("login"))
     return render_template("register.html", form=form)
+
+
+@app.route("/logout")
+def logout():
+    for key in list(session.keys()):
+        session.pop(key)
+    flash("Logged Out")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
