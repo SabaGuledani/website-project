@@ -11,7 +11,7 @@
     <div id="title">
         <nav class="nav-ul">
             <a class="nav-link" href="{{url_for('home')}}">Home</a>
-            <a class="nav-link" href="">Browse</a>
+            <a class="nav-link" href="{{url_for('browse')}}">Browse</a>
 
             {% if "username" in session %}
                 <a class="nav-link" href="{{url_for('logout')}}">Log Out</a>

@@ -24,6 +24,16 @@ class User(db.Model):
     admin = db.Column(db.Boolean)
 
 
+class Albums(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), unique=True, nullable=False)
+    artist = db.Column(db.String(200), unique=True, nullable=False)
+    date = db.Column(db.String(50), nullable=False)
+    tags = db.Column(db.String(500), nullable=False)
+    summary = db.Column(db.String, nullable=False)
+    image = db.Column(db.String(200), nullable=False)
+
+
 class RegistrationForm(Form):
     username = StringField('Username', [validators.Length(min=4, max=25)])
     email = StringField('Email Address', [validators.Length(min=6, max=35)])
@@ -98,6 +108,12 @@ def logout():
         session.pop(key)
     flash("Logged Out")
     return redirect(url_for("login"))
+
+
+@app.route("/browse")
+def browse():
+    albums = db.session.execute(db.select(Albums)).scalars()
+    return render_template("browse.html", albums=albums)
 
 
 if __name__ == "__main__":

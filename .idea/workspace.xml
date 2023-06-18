@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8607376a-7d7b-44cb-9993-0f5399a1669a" name="Changes" comment="#1&#10;Added Registration/Logging In">
+    <list default="true" id="8607376a-7d7b-44cb-9993-0f5399a1669a" name="Changes" comment="#2&#10;Added Logging Out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/576b8549e036a3909be3af29250b0e0f" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/576b8549e036a3909be3af29250b0e0f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/database.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/python.py" beforeDir="false" afterPath="$PROJECT_DIR$/python.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
@@ -90,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687073639719</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="#2&#10;Added Logging Out">
+      <created>1687075508638</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687075508638</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +115,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#1&#10;Added Registration/Logging In" />
-    <option name="LAST_COMMIT_MESSAGE" value="#1&#10;Added Registration/Logging In" />
+    <MESSAGE value="#2&#10;Added Logging Out" />
+    <option name="LAST_COMMIT_MESSAGE" value="#2&#10;Added Logging Out" />
   </component>
 </project>

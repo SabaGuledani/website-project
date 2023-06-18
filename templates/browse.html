@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for album in albums %}
+<img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
+<p>{{ album.title }}</p>
+{% endfor %}
+
+{% endblock %}
