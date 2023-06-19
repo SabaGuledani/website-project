@@ -12,28 +12,33 @@
         <nav class="nav-ul">
             <a class="nav-link" href="{{url_for('home')}}">Home</a>
             <a class="nav-link" href="{{url_for('browse')}}">Browse</a>
-
-            {% if "username" in session %}
-                <a class="nav-link" href="{{url_for('logout')}}">Log Out</a>
-                {% else %}
-                    <a class="nav-link" href="{{url_for('login')}}">Log In/Register</a>
-            {% endif %}
-
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="{{url_for('about')}}">About</a>
         </nav>
     </div>
     <main>
         <aside>
             <ul class="sidebar">
-                <li class="sidebar-li">
-                    <a href="" class="sidebar-li-a">Search</a>
+                <li class="sidebar-p">
+                    {% if "username" in session %}
+                        <p class="sidebar-li-a">User:<br>{{session["username"]}}</p>
+                        {% else %}
+                        <p class="sidebar-li-a">User:<br>Guest<br>(Not Logged In)</p>
+                    {% endif %}
                 </li>
-                <li class="sidebar-li">
-                    <a href="" class="sidebar-li-a">Find</a>
+                {% if "date" in session %}
+                <li class="sidebar-p">
+                        <p class="sidebar-li-a"><br>Member Since:<br>{{session["date"]}}</p>
                 </li>
+                {% endif %}
+                {% if "username" in session %}
                 <li class="sidebar-li">
-                    <a href="" class="sidebar-li-a">Consume</a>
+                    <a href="{{url_for('logout')}}" class="sidebar-li-a"><br>Log Out</a>
                 </li>
+                {% else %}
+                <li class="sidebar-li">
+                    <a href="{{url_for('login')}}" class="sidebar-li-a"><br>Log In/Register</a>
+                </li>
+                {% endif %}
             </ul>
         </aside>
         <div id="content">

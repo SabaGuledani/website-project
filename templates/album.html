@@ -2,7 +2,19 @@
 
 {% block content %}
 
-<img style="float: left; margin-right: 30px;" width="30%" src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
+<div style="float: left; margin-right: 30px; margin-left: 30px;">
+    <img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
+    <form style="margin-top: 20px;" method="post">
+            <input type="submit" class="button-go" value="Buy" name="buy-album">
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+              <p class="flashes">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
 <p class="album-desc">Title - {{ album.title }}</p>
 <p class="album-desc">Artist - {{ album.artist }}</p>
 <p class="album-desc">Published On Last.Fm - {{ album.date }}</p>

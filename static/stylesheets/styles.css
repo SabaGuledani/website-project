@@ -23,6 +23,8 @@ p {
 #title-image {
     text-align: center;
     margin-top: 50px;
+    margin-right: 200px;
+
 }
 .nav-ul {
     text-align: center;
@@ -43,11 +45,12 @@ p {
     background-color: rgba(20, 20, 20, 0.884);
     text-align: left;
     width: fit-content;
-    height: 70vh;
+    height: 20vh;
     padding: 50px 50px;
     float: left;
 }
-.sidebar-li {
+.sidebar-li,
+.sidebar-p {
     font-size: large;
     margin: 10px 0;
 }
@@ -58,6 +61,7 @@ p {
     text-decoration: none;
     color: wheat;
     font-family: "Flowers Sunday";
+    font-size: medium;
 }
 #home-img {
     width: 200px;
@@ -152,4 +156,12 @@ p {
 .album-desc {
     font-size: larger;
     padding-right: 100px;
+}
+
+.about-p {
+    font-size: large;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 220px
 }

@@ -86,7 +86,7 @@ def login():
         else:
             session["username"] = user.username
             session["email"] = user.email
-            session["date"] = user.date
+            session["date"] = str(user.date)[:-9]
             session["admin"] = user.admin
             return redirect(url_for("home"))
     return render_template("login.html", form=form)
@@ -127,9 +127,14 @@ def browse():
     return render_template("browse.html", albums=albums)
 
 
-@app.route("/browse/<album_title>")
+@app.route("/browse/<album_title>", methods=["GET", "POST"])
 def album(album_title):
     album_obj = db.session.execute(db.select(Albums).filter_by(title=album_title)).scalar()
+    if request.method == "POST":
+        if "username" in session:
+            flash("Purchase Successful!")
+        else:
+            flash("Can't Purchase Without An Account!")
     return render_template("album.html", album=album_obj)
 
 
@@ -140,6 +145,11 @@ def search(query):
     print([i for i in albums])
 
     return render_template("browse.html", albums=albums)
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 if __name__ == "__main__":
