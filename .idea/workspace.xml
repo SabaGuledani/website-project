@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8607376a-7d7b-44cb-9993-0f5399a1669a" name="Changes" comment="#2&#10;Added Logging Out">
+    <list default="true" id="8607376a-7d7b-44cb-9993-0f5399a1669a" name="Changes" comment="#3&#10;Added Browsing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask_session/576b8549e036a3909be3af29250b0e0f" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/576b8549e036a3909be3af29250b0e0f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/database.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/python.py" beforeDir="false" afterPath="$PROJECT_DIR$/python.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/stylesheets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/stylesheets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/browse.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687075508638</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="#3&#10;Added Browsing">
+      <created>1687118190375</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687118190375</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +123,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#1&#10;Added Registration/Logging In" />
     <MESSAGE value="#2&#10;Added Logging Out" />
-    <option name="LAST_COMMIT_MESSAGE" value="#2&#10;Added Logging Out" />
+    <MESSAGE value="#3&#10;Added Browsing" />
+    <option name="LAST_COMMIT_MESSAGE" value="#3&#10;Added Browsing" />
   </component>
 </project>

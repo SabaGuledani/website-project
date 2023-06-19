@@ -66,7 +66,7 @@ p {
 #content {
     padding-top: 20px;
     margin-left: 200px;
-    height: 70vh;
+    height: 80vh;
     width: auto;
     overflow: auto;
 }
@@ -118,4 +118,33 @@ p {
     font-size: medium;
     font-family: "Flowers Sunday";
 
+}
+
+.album-item {
+    margin-bottom: 50px;
+}
+
+.album-item:hover {
+    opacity: 80%;
+}
+
+.album-container {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.album-title {
+    font-size: large;
+}
+
+.album-artist {
+    opacity: 80%;
+}
+
+.album-link {
+    text-decoration: none;
 }

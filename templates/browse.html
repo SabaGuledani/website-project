@@ -2,9 +2,19 @@
 
 {% block content %}
 
-{% for album in albums %}
-<img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
-<p>{{ album.title }}</p>
-{% endfor %}
+<div class="album-container">
 
+    {% for album in albums %}
+
+    <a class="album-link" href="/browse/{{album.title}}">
+        <div class="album-item">
+            <img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
+            <p class="album-title">{{ album.title }}</p>
+            <p class="album-artist">{{ album.artist }}</p>
+        </div>
+    </a>
+
+    {% endfor %}
+
+</div>
 {% endblock %}

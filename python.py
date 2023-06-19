@@ -116,5 +116,11 @@ def browse():
     return render_template("browse.html", albums=albums)
 
 
+@app.route("/browse/<album_title>")
+def album(album_title):
+    album_obj = db.session.execute(db.select(Albums).filter_by(title=album_title)).scalar()
+    return render_template("album.html", album=album_obj)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
