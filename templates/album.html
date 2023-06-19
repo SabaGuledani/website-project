@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
-<p>Title - {{ album.title }}</p>
-<p>Artist - {{ album.artist }}</p>
-<p>Release Date - {{ album.date }}</p>
-<p>Tags - {{ album.tags }}</p>
-<p>Album Summary - {{ album.summary.split("<")[0]}}... (Read More On <a class="custom-a" href="https://www.last.fm/home">Last.Fm</a>)</p>
+<img style="float: left; margin-right: 30px;" width="30%" src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
+<p class="album-desc">Title - {{ album.title }}</p>
+<p class="album-desc">Artist - {{ album.artist }}</p>
+<p class="album-desc">Published On Last.Fm - {{ album.date }}</p>
+<p class="album-desc">Tags - {{ album.tags }}</p>
+<p class="album-desc">Album Summary - {{ album.summary.split("<")[0]}}... (Read More On <a class="custom-a" href="https://www.last.fm/home">Last.Fm</a>)</p>
 
 {% endblock %}

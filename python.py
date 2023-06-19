@@ -56,8 +56,19 @@ with app.app_context():
 
 
 @app.route("/")
-@app.route("/home")
+def landing():
+    return redirect(url_for('home'))
+
+
+@app.route("/home", methods=["GET", "POST"])
 def home():
+    if request.method == "POST":
+        query = request.form["search-form"]
+        if query != "":
+            return redirect(url_for("search", query=query))
+        else:
+            return redirect(url_for("browse"))
+
     return render_template("index.html")
 
 
@@ -120,6 +131,15 @@ def browse():
 def album(album_title):
     album_obj = db.session.execute(db.select(Albums).filter_by(title=album_title)).scalar()
     return render_template("album.html", album=album_obj)
+
+
+@app.route("/search=<query>")
+def search(query):
+    albums = Albums.query.filter(Albums.title.like(f"%{query}%") | Albums.artist.like(f"%{query}%"))
+
+    print([i for i in albums])
+
+    return render_template("browse.html", albums=albums)
 
 
 if __name__ == "__main__":

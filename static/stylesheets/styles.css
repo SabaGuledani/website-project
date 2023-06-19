@@ -148,3 +148,8 @@ p {
 .album-link {
     text-decoration: none;
 }
+
+.album-desc {
+    font-size: larger;
+    padding-right: 100px;
+}

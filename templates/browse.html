@@ -5,15 +5,15 @@
 <div class="album-container">
 
     {% for album in albums %}
-
-    <a class="album-link" href="/browse/{{album.title}}">
-        <div class="album-item">
-            <img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
-            <p class="album-title">{{ album.title }}</p>
-            <p class="album-artist">{{ album.artist }}</p>
-        </div>
-    </a>
-
+        <a class="album-link" href="/browse/{{album.title}}">
+            <div class="album-item">
+                <img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
+                <p class="album-title">{{ album.title }}</p>
+                <p class="album-artist">{{ album.artist }}</p>
+            </div>
+        </a>
+    {% else %}
+        <p>No Results Found</p>
     {% endfor %}
 
 </div>
