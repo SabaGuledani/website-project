@@ -121,9 +121,15 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/browse")
+@app.route("/browse", methods=["GET", "POST"])
 def browse():
     albums = db.session.execute(db.select(Albums)).scalars()
+    if request.method == "POST":
+        query = request.form["search-form"]
+        if query != "":
+            return redirect(url_for("search", query=query))
+        else:
+            return redirect(url_for("browse"))
     return render_template("browse.html", albums=albums)
 
 
@@ -138,12 +144,15 @@ def album(album_title):
     return render_template("album.html", album=album_obj)
 
 
-@app.route("/search=<query>")
+@app.route("/search=<query>", methods=["GET", "POST"])
 def search(query):
     albums = Albums.query.filter(Albums.title.like(f"%{query}%") | Albums.artist.like(f"%{query}%"))
-
-    print([i for i in albums])
-
+    if request.method == "POST":
+        query = request.form["search-form"]
+        if query != "":
+            return redirect(url_for("search", query=query))
+        else:
+            return redirect(url_for("browse"))
     return render_template("browse.html", albums=albums)
 
 

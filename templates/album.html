@@ -5,7 +5,7 @@
 <div style="float: left; margin-right: 30px; margin-left: 30px;">
     <img src="{{ url_for('static', filename='images/%s' % (album.image)) }}" />
     <form style="margin-top: 20px;" method="post">
-            <input type="submit" class="button-go" value="Buy" name="buy-album">
+            <input style="width: 300px;" type="submit" class="button-go" value="Buy" name="buy-album">
     </form>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -19,6 +19,6 @@
 <p class="album-desc">Artist - {{ album.artist }}</p>
 <p class="album-desc">Published On Last.Fm - {{ album.date }}</p>
 <p class="album-desc">Tags - {{ album.tags }}</p>
-<p class="album-desc">Album Summary - {{ album.summary.split("<")[0]}}... (Read More On <a class="custom-a" href="https://www.last.fm/home">Last.Fm</a>)</p>
+<p class="album-desc">Album Summary - {{ album.summary.split("<")[0]}}... (Read More On <a target=”_blank” class="custom-a" href="https://www.last.fm/home">Last.Fm</a>)</p>
 
 {% endblock %}

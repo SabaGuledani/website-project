@@ -7,44 +7,23 @@
 <title>Spooky</title>
 </head>
 
-<body>
+<body style="margin: 0px;">
     <div id="title">
         <nav class="nav-ul">
             <a class="nav-link" href="{{url_for('home')}}">Home</a>
             <a class="nav-link" href="{{url_for('browse')}}">Browse</a>
             <a class="nav-link" href="{{url_for('about')}}">About</a>
+            {% if "username" in session %}
+                <a href="{{url_for('logout')}}" class="nav-link">Log Out</a>
+            {% else %}
+                <a href="{{url_for('login')}}" class="nav-link">Log In/Register</a>
+            {% endif %}
         </nav>
     </div>
     <main>
-        <aside>
-            <ul class="sidebar">
-                <li class="sidebar-p">
-                    {% if "username" in session %}
-                        <p class="sidebar-li-a">User:<br>{{session["username"]}}</p>
-                        {% else %}
-                        <p class="sidebar-li-a">User:<br>Guest<br>(Not Logged In)</p>
-                    {% endif %}
-                </li>
-                {% if "date" in session %}
-                <li class="sidebar-p">
-                        <p class="sidebar-li-a"><br>Member Since:<br>{{session["date"]}}</p>
-                </li>
-                {% endif %}
-                {% if "username" in session %}
-                <li class="sidebar-li">
-                    <a href="{{url_for('logout')}}" class="sidebar-li-a"><br>Log Out</a>
-                </li>
-                {% else %}
-                <li class="sidebar-li">
-                    <a href="{{url_for('login')}}" class="sidebar-li-a"><br>Log In/Register</a>
-                </li>
-                {% endif %}
-            </ul>
-        </aside>
         <div id="content">
         {% block content %}{% endblock %}
         </div>
-       
     </main>
 </body>
 
