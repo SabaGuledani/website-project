@@ -19,6 +19,7 @@
 <p class="album-desc">Artist - {{ album.artist }}</p>
 <p class="album-desc">Published On Last.Fm - {{ album.date }}</p>
 <p class="album-desc">Tags - {{ album.tags }}</p>
-<p class="album-desc">Album Summary - {{ album.summary.split("<")[0]}}... (Read More On <a target=”_blank” class="custom-a" href="https://www.last.fm/home">Last.Fm</a>)</p>
+<p class="album-desc">Album Summary - {{ album.summary.split("<")[0]}}... (Read More On <a target=”_blank” class="custom-a"
+href="{{album.summary.split('<')[-2][8:].split('>')[0][:-1]}}">Last.Fm</a>)</p>
 
 {% endblock %}
